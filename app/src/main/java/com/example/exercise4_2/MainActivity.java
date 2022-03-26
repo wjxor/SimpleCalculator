@@ -94,13 +94,18 @@ public class MainActivity extends AppCompatActivity {
                 num1 = edNum1.getText().toString();
                 num2 = edNum2.getText().toString();
 
-                // 입력창이 비어있으면 경고문구 발생
-                if ((num1.isEmpty() == true) || (num2.isEmpty() == true) ){
-                    Toast.makeText(getApplicationContext(), "숫자를 입력하세요!", Toast.LENGTH_SHORT).show();
+                if (num2.equals("0")) {
+                    Toast.makeText(getApplicationContext(), "0으로는 나눌 수 없습니다.", Toast.LENGTH_SHORT).show();
                 } else {
-                    result = Integer.parseInt(num1) / Integer.parseInt(num2);
+                    // 입력창이 비어있으면 경고문구 발생
+                    if ((num1.isEmpty() == true) || (num2.isEmpty() == true) ){
+                        Toast.makeText(getApplicationContext(), "숫자를 입력하세요!", Toast.LENGTH_SHORT).show();
+                    } else {
 
-                    tvResult.setText("계산 결과 : " + result.toString());
+                        result = Integer.parseInt(num1) / Integer.parseInt(num2);
+
+                        tvResult.setText("계산 결과 : " + result.toString());
+                    }
                 }
 
             }
@@ -112,14 +117,20 @@ public class MainActivity extends AppCompatActivity {
                 num1 = edNum1.getText().toString();
                 num2 = edNum2.getText().toString();
 
-                // 입력창이 비어있으면 경고문구 발생
-                if ((num1.isEmpty() == true) || (num2.isEmpty() == true) ){
-                    Toast.makeText(getApplicationContext(), "숫자를 입력하세요!", Toast.LENGTH_SHORT).show();
+                if (num2.equals("0")) {
+                    Toast.makeText(getApplicationContext(), "0으로는 나눌 수 없습니다.", Toast.LENGTH_SHORT).show();
                 } else {
-                    result = Integer.parseInt(num1) % Integer.parseInt(num2);
+                    // 입력창이 비어있으면 경고문구 발생
+                    if ((num1.isEmpty() == true) || (num2.isEmpty() == true) ){
+                        Toast.makeText(getApplicationContext(), "숫자를 입력하세요!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        result = Integer.parseInt(num1) % Integer.parseInt(num2);
 
-                    tvResult.setText("계산 결과 : " + result.toString());
+                        tvResult.setText("계산 결과 : " + result.toString());
+                    }
                 }
+
+
             }
         });
 
