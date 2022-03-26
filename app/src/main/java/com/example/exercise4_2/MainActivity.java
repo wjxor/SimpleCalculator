@@ -1,17 +1,17 @@
 package com.example.exercise4_2;
 
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     EditText edNum1, edNum2;
-    Button btnAdd, btnSub, btnMul, btnDiv;
+    Button btnAdd, btnSub, btnMul, btnDiv, btnRem;
     TextView tvResult;
     String num1, num2;
     Integer result;
@@ -31,60 +31,100 @@ public class MainActivity extends AppCompatActivity {
         btnMul = (Button) findViewById(R.id.btnMul);
         btnSub = (Button) findViewById(R.id.btnSub);
         btnDiv = (Button) findViewById(R.id.btnDiv);
+        btnRem = (Button) findViewById(R.id.btnRem);
 
         tvResult = (TextView) findViewById(R.id.tvResult);
 
-        btnAdd.setOnTouchListener(new View.OnTouchListener() {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View arg0, MotionEvent arg1) {
+            public void onClick(View view) {
                 num1 = edNum1.getText().toString();
                 num2 = edNum2.getText().toString();
-                result = Integer.parseInt(num1) + Integer.parseInt(num2);
-                tvResult.setText("계산 결과 : " + result.toString());
+
+                // 입력창이 비어있으면 경고문구 발생
+                if ((num1.isEmpty() == true) || (num2.isEmpty() == true) ){
+                    Toast.makeText(getApplicationContext(), "숫자를 입력하세요!", Toast.LENGTH_SHORT).show();
+                } else {
+                    result = Integer.parseInt(num1) + Integer.parseInt(num2);
+
+                    tvResult.setText("계산 결과 : " + result.toString());
+                }
 
 
-                return false;
             }
         });
 
-        btnSub.setOnTouchListener(new View.OnTouchListener() {
+        btnSub.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View arg0, MotionEvent arg1) {
+            public void onClick(View view) {
                 num1 = edNum1.getText().toString();
                 num2 = edNum2.getText().toString();
-                result = Integer.parseInt(num1) - Integer.parseInt(num2);
-                tvResult.setText("계산 결과 : " + result.toString());
 
+                // 입력창이 비어있으면 경고문구 발생
+                if ((num1.isEmpty() == true) || (num2.isEmpty() == true) ){
+                    Toast.makeText(getApplicationContext(), "숫자를 입력하세요!", Toast.LENGTH_SHORT).show();
+                } else {
+                    result = Integer.parseInt(num1) - Integer.parseInt(num2);
 
-                return false;
+                    tvResult.setText("계산 결과 : " + result.toString());
+                }
             }
         });
 
-        btnMul.setOnTouchListener(new View.OnTouchListener() {
+        btnMul.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View arg0, MotionEvent arg1) {
+            public void onClick(View view) {
                 num1 = edNum1.getText().toString();
                 num2 = edNum2.getText().toString();
-                result = Integer.parseInt(num1) * Integer.parseInt(num2);
-                tvResult.setText("계산 결과 : " + result.toString());
 
+                // 입력창이 비어있으면 경고문구 발생
+                if ((num1.isEmpty() == true) || (num2.isEmpty() == true) ){
+                    Toast.makeText(getApplicationContext(), "숫자를 입력하세요!", Toast.LENGTH_SHORT).show();
+                } else {
+                    result = Integer.parseInt(num1) * Integer.parseInt(num2);
 
-                return false;
+                    tvResult.setText("계산 결과 : " + result.toString());
+                }
             }
         });
 
-        btnDiv.setOnTouchListener(new View.OnTouchListener() {
+        btnDiv.setOnClickListener(new View.OnClickListener() {
             @Override
-            public boolean onTouch(View arg0, MotionEvent arg1) {
+            public void onClick(View view) {
                 num1 = edNum1.getText().toString();
                 num2 = edNum2.getText().toString();
-                result = Integer.parseInt(num1) / Integer.parseInt(num2);
-                tvResult.setText("계산 결과 : " + result.toString());
 
+                // 입력창이 비어있으면 경고문구 발생
+                if ((num1.isEmpty() == true) || (num2.isEmpty() == true) ){
+                    Toast.makeText(getApplicationContext(), "숫자를 입력하세요!", Toast.LENGTH_SHORT).show();
+                } else {
+                    result = Integer.parseInt(num1) / Integer.parseInt(num2);
 
-                return false;
+                    tvResult.setText("계산 결과 : " + result.toString());
+                }
+
             }
         });
+
+        btnRem.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                num1 = edNum1.getText().toString();
+                num2 = edNum2.getText().toString();
+
+                // 입력창이 비어있으면 경고문구 발생
+                if ((num1.isEmpty() == true) || (num2.isEmpty() == true) ){
+                    Toast.makeText(getApplicationContext(), "숫자를 입력하세요!", Toast.LENGTH_SHORT).show();
+                } else {
+                    result = Integer.parseInt(num1) % Integer.parseInt(num2);
+
+                    tvResult.setText("계산 결과 : " + result.toString());
+                }
+            }
+        });
+
+
+
     }
 
 
